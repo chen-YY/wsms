@@ -1,0 +1,31 @@
+#userInfo {
+    margin-left: 30%;
+    color: deepskyblue;
+}
+
+#contain1 {
+    width: 80%;
+    background-color: skyblue;
+    height: auto;
+    margin-left:  auto;
+    margin-right: auto;
+
+}
+
+#contain2 {
+    width: 80%;
+    background-color: bisque;
+    height: auto;
+    margin-left:  auto;
+    margin-right: auto;
+
+}
+
+#contain3 {
+    width: 80%;
+    background-color: aquamarine;
+    height: 700px;
+    margin-left:  auto;
+    margin-right: auto;
+
+}

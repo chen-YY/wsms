@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.OrderMapper">
+
+    <select id="getNoApproveOrder" resultType="entity.Order">
+        select * from order_copy1 where status = 'A'
+    </select>
+
+    <update id="updateStatus" >
+        update order_copy1 set status = #{status} where id = #{id}
+    </update>
+
+    <update id="updateRemark" >
+        update order_copy1 set remark = #{remark} where id = #{id}
+    </update>
+
+    <insert id="storeAddOrder">
+        insert into order_copy1 values(null,#{sponsorDep},#{sponsorUser},#{disposeDep},#{disposeUser},'A',#{startTime},null,#{type},null,#{goods},#{number},#{UUID});
+    </insert>
+
+    <select id="getBuyOrder" resultType="entity.Order">
+        select * from order_copy1 where sponsorUser = #{sponsorUser} and sponsorDep = 'A' and type = #{type} and status != 'D'
+    </select>
+
+    <update id="closeOrder">
+        update order_copy1 set status = 'D' ,endTime = #{endTime} where id = #{id}
+    </update>
+
+    <insert id="storageAdminApplayBuyOrder">
+        insert into order_copy1 values (
+        null,
+        'A',
+        #{sponsorUser},
+        'B',
+        null,
+        'A',
+        #{time},
+        null,
+        'A',
+        null,null,null,
+        #{UUID}
+        )
+    </insert>
+
+    <select id="getOrderByUUID" resultType="entity.Order">
+        select * from order_copy1 where `only` = #{UUID}
+    </select>
+
+    <select id="storageAdminNeedDeliveryOrder" resultType="entity.Order">
+        select * from order_copy1 where disposeDep = 'A' and disposeUser = #{disposeUser} and type = 'C' and status = 'B'
+    </select>
+
+
+
+
+
+</mapper>

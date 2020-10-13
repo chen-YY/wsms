@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 添加 DUBBO SCHEMA -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:dobbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+
+    <!-- 应用名 -->
+    <dubbo:application name="wsms-provider"/>
+    <!-- 连接到哪个本地注册中心 -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
+
+    <!-- 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受  -->
+    <dubbo:protocol name="dubbo" server="netty" port="20882" serialization="hessian2" />
+    <!-- 监控中心配置，protocol="registry"，表示从注册中心发现监控中心地址
+ <dubbo:monitor protocol="registry"/>
+ -->
+    <!-- 当ProtocolConfig和ServiceConfig某属性没有配置时,采用此缺省值 -->
+    <dubbo:provider timeout="300000" threadpool="fixed" threads="100" accepts="1000" />
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service timeout="6000000" interface="wsms.Test" ref="TestImpl" protocol="dubbo"/>
+    <dubbo:service timeout="6000000" interface="wsms.Login.LoginService" ref="LoginServiceImpl" protocol="dubbo"/>
+    <dubbo:service timeout="6000000" interface="wsms.homepage.LeaderhomeService" ref="LeaderhomeServiceImpl" protocol="dubbo" />
+    <dubbo:service timeout="6000000" interface="wsms.homepage.StorageAdminhomeService" ref="StorageAdminhomeServiceImpl" protocol="dubbo" />
+    <dubbo:service timeout="6000000" interface="wsms.homepage.StoreAdminhomeService" ref="StoreAdminhomeServiceImpl" protocol="dubbo" />
+    <dubbo:service timeout="6000000" interface="wsms.homepage.SorterhomeService" ref="SorterhomeServiceImpl" protocol="dubbo" />
+
+    <!--具体实现该接口的 bean-->
+    <bean id="TestImpl" class="wsms.TestImpl"/>
+    <bean id="LoginServiceImpl" class="wsms.login.LoginServiceImpl" />
+    <bean id="LeaderhomeServiceImpl" class="wsms.homepage.LeaderhomeServiceImpl"/>
+    <bean id="StorageAdminhomeServiceImpl" class="wsms.homepage.StorageAdminhomeServiceImpl"/>
+    <bean id="StoreAdminhomeServiceImpl" class="wsms.homepage.StoreAdminhomeServiceImpl"/>
+    <bean id="SorterhomeServiceImpl" class="wsms.homepage.SorterhomeServiceImpl"/>
+
+
+</beans>

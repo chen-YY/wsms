@@ -1,0 +1,87 @@
+#body{
+    background-color: #eeeeee;
+}
+
+#contain1 {
+    width: 80%;
+    background-color: white;
+    height: 700px;
+    margin-top: 20px;
+    margin-left:  auto;
+    margin-right: auto;
+
+}
+
+#contain2{
+
+    width: 80%;
+    height: 750px;
+    margin-left:  auto;
+    margin-right: auto;
+    background-color : papayawhip;
+
+}
+
+#contain3 {
+    width: 80%;
+    height: 750px;
+    margin-left:  auto;
+    margin-right: auto;
+    background-color : skyblue;
+
+    overflow-y: scroll;
+
+}
+
+#contain4 {
+    width: 80%;
+    height: 750px;
+    margin-left:  auto;
+    margin-right: auto;
+    background-color : papayawhip;
+
+}
+
+.goodsInfo {
+    /*
+    table 样式，用于显示商品种类以及商品名称
+     */
+    width: 700px;
+    background-color: white;
+    text-align: center;
+}
+
+#goodsList {
+    height: 700px;
+    width: 600px;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+#userInfo {
+    margin-left: 30%;
+    color: deepskyblue;
+}
+
+#logoutButton {
+    margin-left: 50px;
+}
+
+#storageInfo {
+    background-color: wheat;
+    height: 750px;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+#addStorageInfo {
+    background-color: lightgreen;
+    height: 750px;
+}
+
+#logoutButton{
+    margin-top: 15px;
+}
+
+
+

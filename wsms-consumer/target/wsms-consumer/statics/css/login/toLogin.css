@@ -1,0 +1,26 @@
+#body {
+    background-color: #eee;
+}
+
+#myHead {
+    background-color: #ffffff;
+    height: 50px;
+}
+
+#headTitleContain {
+    text-align: center;
+    margin-left: 30px;
+    line-height: 50px;
+    font-weight:bold;
+    height: 50px;
+    width: 150px;
+    background-color: rgb(227,62,51);
+    border-radius:25px 25px 25px 25px;
+}
+
+#formContainer{
+    width: 400px;
+    height: 280px;
+    margin-top: 30px;
+
+}

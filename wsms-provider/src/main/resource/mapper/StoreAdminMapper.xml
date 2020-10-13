@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.StoreAdminMapper">
+    <select id="getStoreAdminByAandP" resultType="entity.StoreAdmin">
+        select * from storeadmin where account = #{account} and password = #{password}
+    </select>
+
+    <select id="getStoreAdminById" resultType="entity.StoreAdmin">
+        select * from storeadmin where id = #{id}
+    </select>
+
+    <select id="getAllStorageAdmin" resultType="entity.StoreAdmin">
+        select * from storeadmin
+    </select>
+
+
+</mapper>
